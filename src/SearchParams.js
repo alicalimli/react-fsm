@@ -1,9 +1,8 @@
 import { useState } from "react";
 
 const SearchParams = () => {
-  if (true) {
-    const [location, setLocation] = useState("");
-  }
+  const [location, setLocation] = useState("");
+
   return (
     <div className="search-params">
       <form action="#">
