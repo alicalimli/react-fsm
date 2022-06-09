@@ -80,7 +80,7 @@ const SearchParams = () => {
       </form>
       {console.log(pets)}
       {pets.map((pet) => (
-        <Pet name={pet.name} breed={pet.breed} key={pet.id} breed={pet.breed} />
+        <Pet name={pet.name} breed={pet.breed} key={pet.id} />
       ))}
     </div>
   );
