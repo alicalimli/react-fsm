@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react/cjs/react.production.min";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -7,6 +8,22 @@ const SearchParams = () => {
   const [animal, updateAnimal] = useState("");
   const [breed, updateBreed] = useState("");
   const breeds = [];
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  });
+
+  const fetchData = async () => {
+    const response = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+
+    const results = await response.json();
+
+    setPets(results);
+  };
+
   return (
     <div className="search-params">
       <form>
