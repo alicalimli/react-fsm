@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
-import { React, StrictMode } from "react";
+import React from "react";
+import { StrictMode } from "react";
 import SearchParams from "./SearchParams";
 
 const App = () => {
