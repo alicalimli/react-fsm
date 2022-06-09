@@ -1,12 +1,14 @@
 import ReactDOM from "react-dom";
-import React from "react";
+import { React, StrictMode } from "react";
 import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
-    <div>
-      <SearchParams />
-    </div>
+    <StrictMode>
+      <div>
+        <SearchParams />
+      </div>
+    </StrictMode>
   );
 };
 
