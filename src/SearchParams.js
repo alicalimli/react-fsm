@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.production.min";
+import { useState, useEffect } from "react";
+
+import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -12,7 +13,7 @@ const SearchParams = () => {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchData = async () => {
     const response = await fetch(
@@ -21,7 +22,7 @@ const SearchParams = () => {
 
     const results = await response.json();
 
-    setPets(results);
+    setPets(results.pets);
   };
 
   return (
@@ -77,6 +78,10 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
+      {console.log(pets)}
+      {pets.map((pet) => (
+        <Pet name={pet.name} key={pet.id} breed={pet.breed} />
+      ))}
     </div>
   );
 };
