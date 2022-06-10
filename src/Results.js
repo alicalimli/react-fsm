@@ -1,10 +1,14 @@
 import Pet from "./Pet";
+import notFound from "./assets/notFound.svg";
 
 const Results = ({ pets }) => {
   return (
     <div className="pets-container">
       {!pets.length ? (
-        <h1>pets not found!</h1>
+        <div className="not-found-container">
+          <img className="not-found-img" src={notFound} alt="" />
+          <h1 className="not-found-title">Pet Not Found.</h1>
+        </div>
       ) : (
         pets.map((pet) => (
           <Pet
