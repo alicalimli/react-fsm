@@ -11,8 +11,8 @@ const App = () => {
       <BrowserRouter>
         <h1>Adopt me</h1>
         <Routes>
-          <Route to="/details/:id" element={<Details />} />
-          <Route to="/" element={<SearchParams />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/" element={<SearchParams />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>
