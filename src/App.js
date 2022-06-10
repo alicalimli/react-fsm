@@ -8,9 +8,13 @@ import SearchParams from "./SearchParams";
 const App = () => {
   return (
     <StrictMode>
-      <div>
-        <SearchParams />
-      </div>
+      <BrowserRouter>
+        <h1>Adopt me</h1>
+        <Routes>
+          <Route to="/details/:id" element={<Details />} />
+          <Route to="/" element={<SearchParams />} />
+        </Routes>
+      </BrowserRouter>
     </StrictMode>
   );
 };
