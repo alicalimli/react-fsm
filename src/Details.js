@@ -24,11 +24,13 @@ class Details extends Component {
     return (
       <div className="details">
         <Carousel images={images} />
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
-          <button>Adopt {name}</button>
+        <div className="pet-details">
+          <div className="name-location-container">
+            <h1>{name}</h1>
+            <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
+          </div>
           <p>{description}</p>
+          <button>Adopt {name}</button>
         </div>
       </div>
     );
