@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+  border: none;
+  padding: 0;
+  margin: 0;
   color: #333;
 }
 
@@ -11,18 +14,46 @@ body {
 }
 
 .search-params {
-  width: 1100px;
-  margin: 0 auto;
+  padding: 1rem 2rem;
 }
 
 .search-params form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 25rem;
+  height: 25rem;
+  margin: auto;
+  font-size: 1.2rem;
   border-radius: 6px;
-  background: #faeff0;
-  box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
-  width: 360px;
-  margin: 0px 25px 0px 0px;
-  padding: 35px 15px 15px 15px;
-  float: left;
+  background: white;
+  box-shadow: 0px 0px 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 3rem;
+}
+
+.search-params input,
+.search-params select,
+.search-params button {
+  border-radius: 5px;
+  background: #f4f3f3;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.search-params label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-params button {
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  background-color: #ad343e;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 .search {
@@ -174,20 +205,6 @@ header {
   opacity: 0.6;
 }
 
-.search-params label {
-  display: block;
-  width: 60px;
-}
-
-.search-params input,
-.search-params select {
-  margin-bottom: 30px;
-  font-size: 18px;
-  height: 30px;
-  width: 325px;
-}
-
-.search-params button,
 #modal button,
 #modal a,
 .details button {

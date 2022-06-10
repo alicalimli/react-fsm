@@ -37,6 +37,7 @@ const SearchParams = () => {
           Location
           <input
             id="location"
+            disabled
             value={location}
             placeholder="Location"
             onChange={(e) => updateLocation(e.target.value)}
