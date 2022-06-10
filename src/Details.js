@@ -15,7 +15,11 @@ class Details extends Component {
 
   render() {
     if (this.state.loading) {
-      return <h2>loading … </h2>;
+      return (
+        <div className="spinner-container">
+          <div className="spinner"></div>
+        </div>
+      );
     }
 
     const { animal, breed, city, state, description, name, images } =
