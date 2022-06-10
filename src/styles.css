@@ -57,6 +57,10 @@ button:hover {
   padding: 0.5rem;
 }
 
+.search-params button {
+  background: #ad343e;
+}
+
 .search-params label {
   display: flex;
   flex-direction: column;
