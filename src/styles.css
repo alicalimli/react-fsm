@@ -335,6 +335,8 @@ header {
 
   .search-params {
     width: 95%;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .search-params form {
