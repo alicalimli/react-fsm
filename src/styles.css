@@ -218,7 +218,7 @@ header {
 
 .pet {
   margin: auto;
-  width: 50rem;
+  width: 40rem;
   border-bottom: #969696 1px solid;
   display: flex;
   gap: 1rem;
