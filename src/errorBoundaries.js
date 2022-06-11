@@ -9,10 +9,20 @@ class ErrorBoundaries extends Component {
     return { hasError: true };
   }
 
+  componentDidCatch(error, info) {
+    console.error(error, info);
+  }
+
+  componentDidUpdate() {
+    console.log("updated");
+  }
+
   render() {
     if (this.state.hasError) {
       return <h1>Oops something is wrong!</h1>;
     }
+
+    return this.props.children;
   }
 }
 
