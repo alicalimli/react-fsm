@@ -1,7 +1,8 @@
-import { Component } from "react";
+import { Component, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import ErrorBoundaries from "./errorBoundary";
+import ThemeContext from "./ThemeContext";
 
 class Details extends Component {
   state = { loading: true };
@@ -23,9 +24,7 @@ class Details extends Component {
       );
     }
 
-    throw new Error("lalala");
-
-    // eslint-disable-next-line
+    console.log(this.props);
     const { animal, breed, city, state, description, name, images } =
       this.state;
 
@@ -38,7 +37,9 @@ class Details extends Component {
             <h2>{`${animal} — ${breed} — ${city}, ${state}`}</h2>
           </div>
           <p>{description}</p>
-          <button>Adopt {name}</button>
+          <button style={{ backgroundColor: this.props.theme }}>
+            Adopt {name}
+          </button>
         </div>
       </div>
     );
@@ -47,9 +48,10 @@ class Details extends Component {
 
 const WrappedDetails = () => {
   const params = useParams();
+  const [theme] = useContext(ThemeContext);
   return (
     <ErrorBoundaries>
-      <Details params={params} />;
+      <Details params={params} theme={theme} />;
     </ErrorBoundaries>
   );
 };
