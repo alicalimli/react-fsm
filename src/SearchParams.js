@@ -10,6 +10,7 @@ const SearchParams = () => {
   const [animal, updateAnimal] = useState("");
   const [breed, updateBreed] = useState("");
   const [isPending, setIsPending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const breeds = useBreedList(animal);
   const [pets, setPets] = useState([]);
   const [theme] = useContext(ThemeContext);
@@ -19,16 +20,21 @@ const SearchParams = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchData = async () => {
-    setIsPending(true);
+    try {
+      setIsPending(true);
 
-    const response = await fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
-    );
+      const response = await fetch(
+        `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+      );
 
-    const results = await response.json();
+      const results = await response.json();
 
-    setIsPending(false);
-    setPets(results.pets);
+      setIsPending(false);
+      setPets(results.pets);
+    } catch (error) {
+      console.log(error.message);
+      setErrorMsg(error.message);
+    }
   };
 
   return (
@@ -90,7 +96,7 @@ const SearchParams = () => {
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
-      <Results pets={pets} isPending={isPending} />
+      <Results pets={pets} isPending={isPending} errorMsg={errorMsg} />
     </div>
   );
 };
