@@ -1,9 +1,10 @@
 import Pet from "./Pet";
 import notFound from "./assets/notFound.svg";
 
-const Results = ({ pets }) => {
+const Results = ({ pets, isPending }) => {
   return (
     <div className="pets-container">
+      {isPending && <h1>Loading..</h1>}
       {!pets.length ? (
         <div className="not-found-container">
           <img className="not-found-img" src={notFound} alt="" />

@@ -9,6 +9,7 @@ const SearchParams = () => {
   const [location, updateLocation] = useState("");
   const [animal, updateAnimal] = useState("");
   const [breed, updateBreed] = useState("");
+  const [isPending, setIsPending] = useState(false);
   const breeds = useBreedList(animal);
   const [pets, setPets] = useState([]);
   const [theme] = useContext(ThemeContext);
@@ -18,12 +19,15 @@ const SearchParams = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchData = async () => {
+    setIsPending(true);
+
     const response = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
 
     const results = await response.json();
 
+    setIsPending(false);
     setPets(results.pets);
   };
 
@@ -86,7 +90,7 @@ const SearchParams = () => {
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
-      <Results pets={pets} />
+      <Results pets={pets} isPending={isPending} />
     </div>
   );
 };
