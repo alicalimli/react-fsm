@@ -4,7 +4,11 @@ import notFound from "./assets/notFound.svg";
 const Results = ({ pets, isPending, errorMsg }) => {
   return (
     <div className="pets-container">
-      {isPending && <h1>Loading..</h1>}
+      {isPending && (
+        <div className="spinner-container">
+          <div className="spinner"></div>
+        </div>
+      )}
       {errorMsg && (
         <div className="not-found-container">
           <img className="not-found-img" src={notFound} alt="" />
