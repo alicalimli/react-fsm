@@ -32,6 +32,8 @@ button:hover {
 .search-params {
   padding: 1rem 5rem;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .search-params form {
@@ -320,64 +322,5 @@ header {
 @-webkit-keyframes spin {
   to {
     -webkit-transform: rotate(360deg);
-  }
-}
-
-@media only screen and (max-width: 1129px) {
-  header {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 95%;
-    margin: 0 auto;
-    padding: 20px 0px 0px 0px;
-  }
-
-  .search-params {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .search-params form {
-    margin-bottom: 20px;
-  }
-
-  .search {
-    width: 55%;
-    padding: 15px;
-    border-radius: 9px;
-    float: left;
-    margin-bottom: 25px;
-  }
-}
-
-@media only screen and (max-width: 945px) {
-  .search-params {
-    width: 95%;
-  }
-
-  .search {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .pet {
-    height: 200px;
-  }
-
-  .info {
-    width: 100%;
-    text-align: center;
-  }
-
-  .image-container {
-    margin: 0 auto;
-    float: none;
-  }
-  .carousel-smaller > img {
-    width: 60px;
-    height: 60px;
   }
 }
