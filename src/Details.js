@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
-import ErrorBoundaries from "./errorBoundaries";
+import ErrorBoundaries from "./errorBoundary";
 
 class Details extends Component {
   state = { loading: true };
@@ -15,7 +15,6 @@ class Details extends Component {
   }
 
   render() {
-    throw new Error("asdsdasd");
     if (this.state.loading) {
       return (
         <div className="spinner-container">
@@ -24,6 +23,9 @@ class Details extends Component {
       );
     }
 
+    throw new Error("lalala");
+
+    // eslint-disable-next-line
     const { animal, breed, city, state, description, name, images } =
       this.state;
 
