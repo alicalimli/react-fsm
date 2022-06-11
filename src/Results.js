@@ -1,16 +1,17 @@
 import Pet from "./Pet";
 import notFound from "./assets/notFound.svg";
 
-const Results = ({ pets, isPending }) => {
+const Results = ({ pets, isPending, errorMsg }) => {
   return (
     <div className="pets-container">
       {isPending && <h1>Loading..</h1>}
-      {!pets.length ? (
+      {errorMsg && (
         <div className="not-found-container">
           <img className="not-found-img" src={notFound} alt="" />
           <h1 className="not-found-title">Pet Not Found.</h1>
         </div>
-      ) : (
+      )}
+      {pets &&
         pets.map((pet) => (
           <Pet
             animal={pet.animal}
@@ -21,8 +22,7 @@ const Results = ({ pets, isPending }) => {
             location={`${pet.city}, ${pet.state}`}
             id={pet.id}
           />
-        ))
-      )}
+        ))}
     </div>
   );
 };

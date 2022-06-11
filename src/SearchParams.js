@@ -22,6 +22,8 @@ const SearchParams = () => {
   const fetchData = async () => {
     try {
       setIsPending(true);
+      setPets([]);
+      setErrorMsg("");
 
       const response = await fetch(
         `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
@@ -30,6 +32,9 @@ const SearchParams = () => {
       const results = await response.json();
 
       setIsPending(false);
+      console.log(pets);
+      if (!results.pets.length) throw new Error("pets not found!");
+
       setPets(results.pets);
     } catch (error) {
       console.log(error.message);
