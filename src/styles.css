@@ -19,6 +19,7 @@ body {
 button,
 #modal a,
 #modal button {
+  border-radius: 5px;
   margin-top: 2rem;
   transition: all 0.3s ease;
   background-color: #ad343e;
