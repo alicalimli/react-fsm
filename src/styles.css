@@ -304,3 +304,16 @@ header {
     -webkit-transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 900px) {
+  .search-params {
+    padding: 1rem;
+  }
+  .pet {
+    width: 100%;
+  }
+
+  form {
+    width: 100%;
+  }
+}
